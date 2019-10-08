@@ -9,6 +9,7 @@ import (
 // Set sets the routes for the application
 func Set(e *echo.Echo) {
 	e.GET("/", handler.ShowDashboard)
+	e.GET("/cats", handler.GetCatsChartData)
 
 	e.Static("/assets", config.Current.Path.Asset)
 }

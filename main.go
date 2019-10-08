@@ -8,9 +8,11 @@ import (
 	"time"
 
 	"github.com/hysem/charts/config"
+	"github.com/hysem/charts/container"
 	"github.com/hysem/charts/routes"
 	"github.com/hysem/charts/templates"
 	"github.com/labstack/echo/v4"
+	"github.com/labstack/echo/v4/middleware"
 	"github.com/labstack/gommon/log"
 )
 
@@ -21,7 +23,12 @@ func main() {
 	e.Logger.SetLevel(log.INFO)
 	routes.Set(e)
 	templates.Set(e)
+	container.Init()
 
+	e.Use(middleware.CORSWithConfig(middleware.CORSConfig{
+		AllowOrigins: []string{"*"},
+		AllowHeaders: []string{echo.HeaderOrigin, echo.HeaderContentType, echo.HeaderAccept},
+	}))
 	// Start server
 	go func() {
 		serverConfig := config.Current.Server
