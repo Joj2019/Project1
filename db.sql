@@ -7,6 +7,11 @@ CREATE TABLE `cats` (
     `category` VARCHAR(50),
     `count` INT
 );
+CREATE TABLE `dogs` (
+    `id` INT PRIMARY KEY AUTO_INCREMENT,
+    `category` VARCHAR(50),
+    `count` INT
+);
 
 INSERT INTO
     `cats` (`category`, `count`)
@@ -20,3 +25,9 @@ VALUES
     ('item 2', 15),
     ('item 3', 50),
     ('Kittens', 5);
+
+INSERT INTO
+    `dogs` (`category`, `count`)
+VALUES
+    ('Dogs', 45),
+    ('Puppies', 5);

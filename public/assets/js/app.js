@@ -18,6 +18,7 @@ function drawChart(el, data) {
   console.log(colors)
   console.log(labels)
   var $container = $(el);
+   $container.html('');
 
   var barColors = ['#008B8B'],
     highlightColor = '#FFF68F',
@@ -76,7 +77,16 @@ function drawChart(el, data) {
 
 
 $(document).ready(function () {
+  
+})
+
+function loadDogs(){
+  $.get(window.app.url + "/dogs", function (data) {
+    drawChart('#graph', data);
+  })
+}
+function loadCats(){
   $.get(window.app.url + "/cats", function (data) {
     drawChart('#graph', data);
   })
-})
+}

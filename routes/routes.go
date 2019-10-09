@@ -10,6 +10,7 @@ import (
 func Set(e *echo.Echo) {
 	e.GET("/", handler.ShowDashboard)
 	e.GET("/cats", handler.GetCatsChartData)
+	e.GET("/dogs", handler.GetDogsChartData)
 
 	e.Static("/assets", config.Current.Path.Asset)
 }

@@ -22,3 +22,12 @@ func GetCatsChartData(c echo.Context) error {
 	}
 	return c.JSON(http.StatusOK, data)
 }
+
+// GetDogsChartData retrieves the dogs data from db
+func GetDogsChartData(c echo.Context) error {
+	data, err := model.GetDogsChartData()
+	if err != nil {
+		return c.JSON(http.StatusServiceUnavailable, "Unable to complete the request")
+	}
+	return c.JSON(http.StatusOK, data)
+}
