@@ -77,15 +77,19 @@ function drawChart(el, data) {
 
 
 $(document).ready(function () {
-  
+  loadCats();
 })
 
 function loadDogs(){
+  $('#dogs').attr('disabled', true);
+  $('#cats').attr('disabled', false);
   $.get(window.app.url + "/dogs", function (data) {
     drawChart('#graph', data);
   })
 }
 function loadCats(){
+  $('#cats').attr('disabled', true);
+  $('#dogs').attr('disabled', false);
   $.get(window.app.url + "/cats", function (data) {
     drawChart('#graph', data);
   })
