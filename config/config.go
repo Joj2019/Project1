@@ -42,7 +42,7 @@ type MysqlConfig struct {
 	Port     int
 	Database string
 	Username string
-	Password string
+	Password string `envconfig:"optional"`
 }
 
 //Load loads configuration values
